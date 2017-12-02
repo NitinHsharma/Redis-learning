@@ -1,0 +1,7 @@
+<h1>REDIS LEARNING</h1>
+
+RUN <CODE>NPM INSTALL</CODE> on root folder
+
+start local <B>REDIS</B> 
+
+RUN <CODE>NODEMON</CODE>
