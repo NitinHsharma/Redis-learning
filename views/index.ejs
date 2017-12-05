@@ -40,21 +40,15 @@
 
     <main role="main" class="container">
 
-        <!-- <% if(typeof data == Object) { for(var item in data) { %>
-            <label for="text"><%= item %>:</label>
-            <input type="<%= formdata[item] %>" class="form-control" id="<%= item %>" placeholder="Enter <%= item %>" name="<%= item %>">
 
-            <% } } else { %>
-                <label for="text"><%= data %>:</label>
-                <% }%> -->
         <% for(var item in Userdata) { %>
             <div class="form-group">
                 <label for="text"><%= item %>:</label>
-                <input type="<%= Userdata[item] %>" class="form-control" id="<%= item %>" placeholder="Enter <%= item %>" name="<%= item %>">
+                <input type="text" class="form-control" id="<%= item %>" placeholder="<%= Userdata[item] %>" name="<%= item %>">
             </div>
             <% } %>
 
-                <label for="text"><%= data %></label>
+                <label for="text"><%= commondata %></label>
 
     </main>
     <!-- /.container -->

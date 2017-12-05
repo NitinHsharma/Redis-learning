@@ -51,12 +51,12 @@ router.post('/addNewUser', (req, res) => {
                         res.send('something is wrong');
                     } else {
                         // res.send('User created');
-                        res.render('../views/index.ejs', { Userdata: "", data: "User is created" })
+                        res.render('../views/index.ejs', { Userdata: "", commondata: "User is created" })
                     }
                 });
             } else {
                 //res.send('user already present');
-                res.render('../views/index.ejs', { Userdata: "", data: "User Already Present" })
+                res.render('../views/index.ejs', { Userdata: "", commondata: "User Already Present" })
 
             }
         })
@@ -75,7 +75,8 @@ router.post('/searchUser', (req, res) => {
                     data = "User not present";
                 }
                 //res.send(data);
-                res.render('../views/index.ejs', { Userdata: data, data: "" })
+                console.log(data);
+                res.render('../views/index.ejs', { Userdata: data, commondata: "" })
 
             }
         })
@@ -91,7 +92,7 @@ router.post('/deleteUser', (req, res) => {
                 res.send(err);
             } else {
                 //res.send('ok');
-                res.render('../views/index.ejs', { Userdata: "", data: "User Deleted successfully" })
+                res.render('../views/index.ejs', { Userdata: "", commondata: "User Deleted successfully" })
 
             }
 
