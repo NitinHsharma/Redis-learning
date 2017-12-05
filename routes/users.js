@@ -37,51 +37,46 @@ router.post('/addUser', (req, res) => {
 })
 
 router.post('/addNewUser', (req, res) => {
+    console.log(req.body.Username);
+    DBClient.GetHAll(req.body.Username, (err, userData) => {
 
-    console.log('1');
-    console.log(req.body);
-    // var kvPair = JSON.parse(req.body);
-
-    // if (typeof req.body.username === 'undefined' || typeof kvPair === 'undefined') {
-    //     console.log('2')
-    //     res.send('Key and value can not be blank');
-    // } else {
-    console.log('3');
-
-    DBClient.GetHAll(req.body.username, (err, userData) => {
-            console.log('4');
 
             if (userData === null) {
-                console.log('5');
 
-                DBClient.AddH(req.body.username, req.body, (err, data) => {
+
+                DBClient.AddH(req.body.Username, req.body, (err, data) => {
                     console.log('6');
 
                     if (err) {
                         res.send('something is wrong');
                     } else {
-                        res.send('User created');
+                        // res.send('User created');
+                        res.render('../views/index.ejs', { Userdata: "", data: "User is created" })
                     }
                 });
             } else {
-                res.send('user already present');
+                //res.send('user already present');
+                res.render('../views/index.ejs', { Userdata: "", data: "User Already Present" })
+
             }
         })
         //}
 })
 
 router.post('/searchUser', (req, res) => {
-    if (typeof req.body.username === 'undefined') {
+    if (typeof req.body.Username === 'undefined') {
         res.send('Key and value can not be blank');
     } else {
-        DBClient.GetHAll(req.body.username, (err, data) => {
+        DBClient.GetHAll(req.body.Username, (err, data) => {
             if (err) {
                 res.send('something is wrong');
             } else {
                 if (data === null) {
                     data = "User not present";
                 }
-                res.send(data);
+                //res.send(data);
+                res.render('../views/index.ejs', { Userdata: data, data: "" })
+
             }
         })
     }
@@ -95,7 +90,9 @@ router.post('/deleteUser', (req, res) => {
             if (err) {
                 res.send(err);
             } else {
-                res.send('ok')
+                //res.send('ok');
+                res.render('../views/index.ejs', { Userdata: "", data: "User Deleted successfully" })
+
             }
 
         });

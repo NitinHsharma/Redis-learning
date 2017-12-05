@@ -45,24 +45,20 @@
         <form method="POST" action="/users/addNewUser">
             <div class="form-group">
                 <label for="text">Username:</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+                <input type="text" class="form-control" id="Username" placeholder="Enter username" name="Username">
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="text">Contact:</label>
-                <input type="text" class="form-control" id="contact" placeholder="Enter Number" name="contact">
-            </div>
-
-            <button type="submit" class="btn btn-default">Submit</button>
+            <% for(var item in formdata) { %>
+                <div class="form-group">
+                    <label for="text"><%= item %>:</label>
+                    <input type="<%= formdata[item] %>" class="form-control" id="<%= item %>" placeholder="Enter <%= item %>" name="<%= item %>">
+                </div>
+                <% } %>
+                    <button type="submit" class="btn btn-default">Register</button>
         </form>
 
 
     </main>
     <!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

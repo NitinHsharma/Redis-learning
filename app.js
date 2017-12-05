@@ -29,15 +29,7 @@ app.set('port', port);
 
 app.use('/users', users);
 app.use('/', index);
-app.use('/add', (req, res) => {
-    res.render('addUser')
-});
-app.use('/search', (req, res) => {
-    res.render('searchUser')
-});
-app.use('/delete', (req, res) => {
-    res.render('deleteUser')
-});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
