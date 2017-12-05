@@ -5,7 +5,7 @@ var DBClient = require('../Utils/redis-client');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { commondata: '', Userdata: '' });
 });
 
 router.use('/add', (req, res) => {
