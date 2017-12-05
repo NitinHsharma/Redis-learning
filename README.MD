@@ -22,6 +22,6 @@ HSET ADDFORM "email" "email"
 
 HSET ADDFORM "gender" "text"
 
-HSET ADDFORM "age" "number"```
+HSET ADDFORM "age" "number"
 
 
